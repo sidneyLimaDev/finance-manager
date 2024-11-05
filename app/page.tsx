@@ -1,7 +1,8 @@
+import { Button } from "./_components/ui/button";
 
 function Home() {
   return (
-    <div>Home</div>
+    <Button>Hello world</Button>
   )
 }
 

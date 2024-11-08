@@ -20,7 +20,7 @@ model Transaction {
   amout         Decimal                  @db.Decimal(10, 2)
   category      TransactionCategory
   paymentMethod TransactionPaymentMethod
-  Date          DateTime
+  date          DateTime
   created       DateTime                 @default(now())
   updateAt      DateTime                 @updatedAt
   userId        String

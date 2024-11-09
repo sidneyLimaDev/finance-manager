@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../_components/navbar";
 
 function SubscriptionPage() {
   return (
-    <div>SubscriptionPage</div>
-  )
+    <>
+      <Navbar />
+    </>
+  );
 }
 
-export default SubscriptionPage
+export default SubscriptionPage;

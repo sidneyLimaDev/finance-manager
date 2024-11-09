@@ -45,13 +45,13 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
       }),
   },
   {
-    accessorKey: "amout",
+    accessorKey: "amount",
     header: "Valor",
     cell: ({ row: { original: transaction } }) =>
       new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL",
-      }).format(Number(transaction.amout)),
+      }).format(Number(transaction.amount)),
   },
   {
     accessorKey: "actions",

@@ -14,17 +14,18 @@ export const TRANSACTION_PAYMENT_METHOD_ICONS = {
   [TransactionPaymentMethod.OTHER]: "other.svg",
 };
 
-export const TRANSACTION_CATEGORY_LABELS = {
-  EDUCATION: "Ensino",
-  ENTERTAINMENT: "Entretenimento",
-  FOOD: "Comida",
-  HEALTH: "Saúde",
-  HOUSING: "Moradia",
-  OTHER: "Outros",
-  SALARY: "Salário",
-  TRANSPORTATION: "Transporte",
-  UTILITY: "Utilidade",
-};
+export const TRANSACTION_CATEGORY_LABELS: Record<TransactionCategory, string> =
+  {
+    EDUCATION: "Ensino",
+    ENTERTAINMENT: "Entretenimento",
+    FOOD: "Comida",
+    HEALTH: "Saúde",
+    HOUSING: "Moradia",
+    OTHER: "Outros",
+    SALARY: "Salário",
+    TRANSPORTATION: "Transporte",
+    UTILITY: "Utilidade",
+  };
 
 export const TRANSACTION_PAYMENT_METHOD_LABELS = {
   BANK_TRANSFER: "Transferência Bancária",

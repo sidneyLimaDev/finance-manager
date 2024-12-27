@@ -5,6 +5,7 @@ import { auth } from "@clerk/nextjs/server";
 import {
   TransactionCategory,
   TransactionPaymentMethod,
+  TransactionPaymentStatus,
   TransactionType,
 } from "@prisma/client";
 import { upsertTransactionSchema } from "./schema";
@@ -18,6 +19,7 @@ interface upsertTransactionParams {
   category: TransactionCategory;
   paymentMethod: TransactionPaymentMethod;
   date: Date;
+  paymentStatus?: TransactionPaymentStatus;
 }
 export const upsertTransaction = async (params: upsertTransactionParams) => {
   upsertTransactionSchema.parse(params);

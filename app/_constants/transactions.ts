@@ -26,6 +26,11 @@ export const TRANSACTION_PAYMENT_METHOD_LABELS = {
   PIX: "PIX",
 };
 
+export const TRANSACTION_PAYMENT_STATUS_LABELS = {
+  PAID: "Pago",
+  PAYABLE: "À pagar",
+};
+
 export const TRANSACTION_TYPE_OPTIONS = [
   {
     value: TransactionType.EXPENSE,
@@ -112,5 +117,16 @@ export const TRANSACTION_CATEGORY_OPTIONS = [
   {
     value: TransactionCategory.UTILITY,
     label: TRANSACTION_CATEGORY_LABELS[TransactionCategory.UTILITY],
+  },
+];
+
+export const TRANSACTION_PAYMENT_STATUS_OPTIONS = [
+  {
+    value: "PAID",
+    label: TRANSACTION_PAYMENT_STATUS_LABELS.PAID,
+  },
+  {
+    value: "PAYABLE",
+    label: TRANSACTION_PAYMENT_STATUS_LABELS.PAYABLE,
   },
 ];

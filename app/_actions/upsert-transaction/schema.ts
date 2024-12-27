@@ -1,6 +1,7 @@
 import {
   TransactionCategory,
   TransactionPaymentMethod,
+  TransactionPaymentStatus,
   TransactionType,
 } from "@prisma/client";
 import { z } from "zod";
@@ -12,4 +13,5 @@ export const upsertTransactionSchema = z.object({
   category: z.nativeEnum(TransactionCategory),
   paymentMethod: z.nativeEnum(TransactionPaymentMethod),
   date: z.date(),
+  paymentStatus: z.nativeEnum(TransactionPaymentStatus),
 });

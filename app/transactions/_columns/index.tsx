@@ -8,6 +8,7 @@ import { TrashIcon } from "lucide-react";
 import {
   TRANSACTION_CATEGORY_LABELS,
   TRANSACTION_PAYMENT_METHOD_LABELS,
+  TRANSACTION_PAYMENT_STATUS_LABELS,
 } from "@/app/_constants/transactions";
 import EditTransactionButton from "../_components/edit-transaction-button";
 
@@ -53,6 +54,12 @@ export const transactionColumns: ColumnDef<Transaction>[] = [
         style: "currency",
         currency: "BRL",
       }).format(Number(transaction.amount)),
+  },
+  {
+    accessorKey: "paymentStatus",
+    header: "Status",
+    cell: ({ row: { original: transaction } }) =>
+      TRANSACTION_PAYMENT_STATUS_LABELS[transaction.paymentStatus],
   },
   {
     accessorKey: "actions",

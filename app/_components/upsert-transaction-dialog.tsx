@@ -31,12 +31,14 @@ import {
   PAYMENT_METHOD_OPTIONS,
   TRANSACTION_CATEGORY_OPTIONS,
   TRANSACTION_TYPE_OPTIONS,
+  TRANSACTION_PAYMENT_STATUS_OPTIONS,
 } from "../_constants/transactions";
 import { DatePicker } from "./ui/date-picker";
 import { z } from "zod";
 import {
   TransactionCategory,
   TransactionPaymentMethod,
+  TransactionPaymentStatus,
   TransactionType,
 } from "@prisma/client";
 import { useForm } from "react-hook-form";
@@ -69,6 +71,9 @@ const formSchema = z.object({
   date: z.date({
     required_error: "A data da transação é obrigatório.",
   }),
+  paymentStatus: z.nativeEnum(TransactionPaymentStatus, {
+    required_error: "O status de pagamento da transação é obrigatório.",
+  }),
 });
 
 type FormSchema = z.infer<typeof formSchema>;
@@ -87,6 +92,7 @@ const UpsertTransactionDialog = ({
       name: "",
       paymentMethod: TransactionPaymentMethod.CASH,
       type: TransactionType.EXPENSE,
+      paymentStatus: TransactionPaymentStatus.PAYABLE,
     },
   });
 
@@ -247,6 +253,34 @@ const UpsertTransactionDialog = ({
                 <FormItem>
                   <FormLabel>Selecione uma data</FormLabel>
                   <DatePicker value={field.value} onChange={field.onChange} />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="paymentStatus"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Status do pagamento</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Selecione o método de pagamento" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {TRANSACTION_PAYMENT_STATUS_OPTIONS.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}

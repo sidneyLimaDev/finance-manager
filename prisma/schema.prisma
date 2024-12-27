@@ -24,6 +24,7 @@ model Transaction {
   created       DateTime                 @default(now())
   updateAt      DateTime                 @updatedAt
   userId        String
+  paymentStatus TransactionPaymentStatus
 }
 
 enum TransactionType {
@@ -52,4 +53,10 @@ enum TransactionPaymentMethod {
   CASH
   PIX
   OTHER
+}
+
+
+enum TransactionPaymentStatus {
+  PAID
+  PAYABLE
 }
